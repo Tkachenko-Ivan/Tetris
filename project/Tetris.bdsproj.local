@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2010.06.12 00:28:16.398.bdsproj,C:\Users\ВелонЪ\Учёба\II курс\ООиВП\Курсовая\Project1.bdsproj=C:\Users\ВелонЪ\Учёба\II курс\ООиВП\Курсовая\Tetris.bdsproj</Transaction>
-    <Transaction>2010.06.12 11:11:43.340.pas,C:\Users\ВелонЪ\Учёба\II курс\ООиВП\Курсовая\Unit1.pas=C:\Users\ВелонЪ\Учёба\II курс\ООиВП\Курсовая\About.pas</Transaction>
-    <Transaction>2010.06.12 11:11:43.350.dfm,C:\Users\ВелонЪ\Учёба\II курс\ООиВП\Курсовая\Unit1.dfm=C:\Users\ВелонЪ\Учёба\II курс\ООиВП\Курсовая\About.dfm</Transaction>
-  </Transactions>
-</BorlandProject>
