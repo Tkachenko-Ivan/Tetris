@@ -11,32 +11,32 @@ type
        fx,fy: byte;
        ff:byte;
        fp:byte;
-       flag2:boolean; //Признак успешного завершения смещения
-       flag3:boolean; //Признак успешного завершения ротации
+       flag2:boolean; // РџСЂРёР·РЅР°Рє СѓСЃРїРµС€РЅРѕРіРѕ Р·Р°РІРµСЂС€РµРЅРёСЏ СЃРјРµС‰РµРЅРёСЏ
+       flag3:boolean; // РџСЂРёР·РЅР°Рє СѓСЃРїРµС€РЅРѕРіРѕ Р·Р°РІРµСЂС€РµРЅРёСЏ СЂРѕС‚Р°С†РёРё
        
-       fOnIzmOk:TNotifyEvent; //Произошёл спуск
-       fOnEndSp:TMyEvent; //Удаление строк
+       fOnIzmOk:TNotifyEvent; // РџСЂРѕРёР·РѕС€С‘Р» СЃРїСѓСЃРє
+       fOnEndSp:TMyEvent; // РЈРґР°Р»РµРЅРёРµ СЃС‚СЂРѕРє
 
-       procedure SetX(NewX:byte); //Процедура смещения
-       procedure SetY(NewY:byte); //Процедура спуска
+       procedure SetX(NewX:byte); // РџСЂРѕС†РµРґСѓСЂР° СЃРјРµС‰РµРЅРёСЏ
+       procedure SetY(NewY:byte); // РџСЂРѕС†РµРґСѓСЂР° СЃРїСѓСЃРєР°
 
      public
-       flag:boolean; //Признак успешного завершения спуска
-       left:boolean; //Смещение произошло влево?
-       fMatr: array of array of byte; //матрица
+       flag:boolean; // РџСЂРёР·РЅР°Рє СѓСЃРїРµС€РЅРѕРіРѕ Р·Р°РІРµСЂС€РµРЅРёСЏ СЃРїСѓСЃРєР°
+       left:boolean; // РЎРјРµС‰РµРЅРёРµ РїСЂРѕРёР·РѕС€Р»Рѕ РІР»РµРІРѕ?
+       fMatr: array of array of byte; // РњР°С‚СЂРёС†Р°
 
        constructor Create;
-       procedure Smeshenie; //Применение результата смещения
-       procedure Spusk; //Применение результата спуска
-       procedure Rout; //Ротация
-       procedure RoutProv; //Применение результата ротации
-       procedure NewFig(n:byte); //Создание новой фигуры
+       procedure Smeshenie; // РџСЂРёРјРµРЅРµРЅРёРµ СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃРјРµС‰РµРЅРёСЏ
+       procedure Spusk; // РџСЂРёРјРµРЅРµРЅРёРµ СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃРїСѓСЃРєР°
+       procedure Rout; // Р РѕС‚Р°С†РёСЏ
+       procedure RoutProv; // РџСЂРёРјРµРЅРµРЅРёРµ СЂРµР·СѓР»СЊС‚Р°С‚Р° СЂРѕС‚Р°С†РёРё
+       procedure NewFig(n:byte); // РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕР№ С„РёРіСѓСЂС‹
        procedure CorrectMatr;
 
-       property f: byte read ff write ff; //Номер фигуры
-       property x: byte read fx write SetX; //Координат верхнего
-       property y: byte read fy write SetY;           // левого угла
-       property p: byte read fp write fp; //Положение фигуры: Вертикальное/Горизонтальное
+       property f: byte read ff write ff; // РќРѕРјРµСЂ С„РёРіСѓСЂС‹
+       property x: byte read fx write SetX; // РљРѕРѕСЂРґРёРЅР°С‚ РІРµСЂС…РЅРµРіРѕ
+       property y: byte read fy write SetY;           // Р»РµРІРѕРіРѕ СѓРіР»Р°
+       property p: byte read fp write fp; // РџРѕР»РѕР¶РµРЅРёРµ С„РёРіСѓСЂС‹: Р’РµСЂС‚РёРєР°Р»СЊРЅРѕРµ/Р“РѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕРµ
 
        property OnIzmOk: TNotifyEvent read fOnIzmOk write fOnIzmOk;
        property OnEndSp: TMyEvent read fOnEndSp write fOnEndSp;
@@ -91,7 +91,7 @@ constructor TFigure.Create;
      end
    end;
 
-  procedure TFigure.SetX(NewX:byte); //Процедура смещения
+  procedure TFigure.SetX(NewX:byte); // РџСЂРѕС†РµРґСѓСЂР° СЃРјРµС‰РµРЅРёСЏ
   var j,i,m,l:byte;
    begin
     flag2:=true;
@@ -124,7 +124,7 @@ constructor TFigure.Create;
     fx:=NewX;
    end;
 
-  procedure TFigure.SetY(NewY:byte); //Процедура спуска
+  procedure TFigure.SetY(NewY:byte); // РџСЂРѕС†РµРґСѓСЂР° СЃРїСѓСЃРєР°
   var j,i,m,l:byte;
    begin
     flag:=true;
@@ -144,7 +144,7 @@ constructor TFigure.Create;
     fy:=NewY;
    end;
 
-  procedure TFigure.Smeshenie; //Применение результата смещения
+  procedure TFigure.Smeshenie; // РџСЂРёРјРµРЅРµРЅРёРµ СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃРјРµС‰РµРЅРёСЏ
   var i,j,j2,m,l:byte;
    begin
 
@@ -159,7 +159,7 @@ constructor TFigure.Create;
     for i:=y to y+m do
      for j:=j2-1 to j2+l+2 do
       begin
-       if not flag2 then //Смещение не удалось
+       if not flag2 then // РЎРјРµС‰РµРЅРёРµ РЅРµ СѓРґР°Р»РѕСЃСЊ
         begin
          if fMatr[i][j]=2 then fMatr[i][j]:=0;
          if (fMatr[i][j]=1)or(fMatr[i][j]=3) then fMatr[i][j]:=1;
@@ -173,7 +173,7 @@ constructor TFigure.Create;
       end;
    end;
 
-  procedure TFigure.Spusk; //Применение результата спуска
+  procedure TFigure.Spusk; // РџСЂРёРјРµРЅРµРЅРёРµ СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃРїСѓСЃРєР°
   var i,j,l,m:byte;
    begin
     case f of
@@ -185,7 +185,7 @@ constructor TFigure.Create;
     for i:=y-1 to y+m do
      for j:=x-1 to x+l+1 do
       begin
-       if not flag then //Спуск не удался
+       if not flag then // РЎРїСѓСЃРє РЅРµ СѓРґР°Р»СЃСЏ
         begin
          if fMatr[i][j]=2 then fMatr[i][j]:=0;
          if (fMatr[i][j]=1)or(fMatr[i][j]=3) then fMatr[i][j]:=4+f;
@@ -200,7 +200,7 @@ constructor TFigure.Create;
      if not flag then CorrectMatr;
    end;
 
-  procedure TFigure.Rout; //Ротация
+  procedure TFigure.Rout; // Р РѕС‚Р°С†РёСЏ
    begin
     flag3:=true;
     if f=4 then begin flag3:=false; exit end
@@ -369,7 +369,7 @@ constructor TFigure.Create;
       end;
    end;
 
-  procedure TFigure.RoutProv; //Применение результата ротации
+  procedure TFigure.RoutProv; // РџСЂРёРјРµРЅРµРЅРёРµ СЂРµР·СѓР»СЊС‚Р°С‚Р° СЂРѕС‚Р°С†РёРё
   var i,j,m,l,k:byte;
    begin
     l:=y;
@@ -383,7 +383,7 @@ constructor TFigure.Create;
     for i:=l to l+m do
      for j:=k to k+m do
       begin
-       if not flag3 then //Ротация не удалась
+       if not flag3 then // Р РѕС‚Р°С†РёСЏ РЅРµ СѓРґР°Р»Р°СЃСЊ
         begin
          if fMatr[i][j]=2 then fMatr[i][j]:=0;
          if (fMatr[i][j]=1)or(fMatr[i][j]=3) then fMatr[i][j]:=1;
